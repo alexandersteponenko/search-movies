@@ -1,0 +1,93 @@
+body {
+  font-family: "Inter", serif;
+  font-size: 30px;
+  color: rgba(0, 0, 0, 1);
+}
+.movie {
+  padding: 60px 30px 100px 150px;
+}
+.arrow {
+  width: 30px;
+  height: 25px;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+.movie__link-back {
+  display: inline-block;
+  margin-bottom: 115px;
+  font-size: 40px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  transition: color 0.3s ease-in-out;
+}
+.movie__link-back:hover {
+  opacity: 0.5;
+}
+.card__movie {
+  margin-bottom: 74px;
+  display: flex;
+  column-gap: 90px;
+}
+.card__poster {
+  width: 300px;
+}
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card__info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.info__name {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 61px;
+}
+.info__year,
+.info__rating,
+.info__release,
+.info__duration,
+.info__genre,
+.info__director,
+.info__scenario,
+.info__actors {
+  display: flex;
+  column-gap: 24px;
+  align-items: center;
+}
+.info__year-title,
+.info__rating-title,
+.info__release-title,
+.info__duration-title,
+.info__genre-title,
+.info__director-title,
+.info__scenario-title,
+.info__actors-title {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 36px;
+}
+.info__year-text,
+.info__rating-text,
+.info__release-text,
+.info__duration-text,
+.info__genre-text,
+.info__director-text,
+.info__scenario-text,
+.info__actors-text {
+  color: rgb(0, 148, 255);
+}
+.card-movie__box {
+  width: 1000px;
+  text-align: center;
+}
+.card-movie__description-text {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+}
