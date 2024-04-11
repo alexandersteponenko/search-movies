@@ -13,32 +13,32 @@ input.value = '';
 });
 
 function searchMovies() {
-const searchTerm = input.value.trim();
+  const searchTerm = input.value.trim();
 
-if (searchTerm === "") {
-    moviesList.innerHTML = `<p class = name__movie>Введите названия фильма !!!</p>`;
-return;
+  if (searchTerm === "") {
+    moviesList.innerHTML = '<p class="name__movie">Введите названия фильма !!!</p>';
+    return;
+  }
+
+  getApiMovie(searchTerm);
 }
 
-const url = `https://www.omdbapi.com/?s=${searchTerm}&${apiKey}`;
+function getApiMovie(searchTerm) {
+  const url = `https://www.omdbapi.com/?s=${searchTerm}&${apiKey}`;
 
-fetch(url)
-.then((response) => response.json())
-.then((data) => {
-if (data.Response === "True") {
-displayMovies(data.Search);
-
-} else {
-    moviesList.innerHTML = `<p class = 'no__movies'>Фильмы не найдены</p>`;
-}
-})
-.catch((error) => console.error("Error:", error));
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      displayMovies(data);
+    })
+    .catch((error) => console.error("Error:", error));
 }
 
-function displayMovies(movies) {
+const displayMovies = data => {
 moviesList.innerHTML = "";
 
-movies.forEach((movie) => {
+if (data.Response === "True") {
+data.Search.forEach((movie) => {
 const moviePoster = movie.Poster === "N/A" ? "placeholder-image.jpg" : movie.Poster;
 const movieType = movie.Type === 'movie' ? 'Фильм' : '';
 const TypeSeries =  movie.Type === 'series' ? 'Сериал' : '';
@@ -60,4 +60,7 @@ const movieElement = `
 `;
 moviesList.insertAdjacentHTML("beforeend", movieElement);
 });
+   } else {
+      moviesList.innerHTML = `<p class = 'no__movies'>Фильмы не найдены</p>`;
+   } 
 }
